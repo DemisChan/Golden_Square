@@ -1,14 +1,37 @@
 require 'string_builder'
 
 RSpec.describe StringBuilder do
-	it "adds multiple srings together" do
-		var =  StringBuilder.new()
-		var.add("mountain")
-		var.add("sea")
-		var.size
-		result = var.output()
-		expect(result).to eq "mountainsea"
+  context 'initially' do
+    it "initially report to empty string" do
+      var =  StringBuilder.new()
+      expect(var.output).to eq ""
+    end
 
-	end
+    it 'initially returns the legth of 0' do
+      var = StringBuilder.new
+      expect(var.size).to eq 0
+    end
+  end
 
+  context 'adding strings' do
+    it 'returns given string' do
+      var = StringBuilder.new
+      var.add("mountain")
+		  expect(var.output).to eq "mountain"
+    end
+
+    it 'returns multi-string' do
+      var = StringBuilder.new
+      var.add("mountain")
+      var.add("lion")
+		  expect(var.output).to eq 'mountainlion'
+    end
+
+    it 'returns multi-string' do
+      var = StringBuilder.new
+      var.add("mountain")
+      var.add("lion")
+		  expect(var.size).to eq 12
+    end
+  end
 end

@@ -14,4 +14,4 @@ class StringBuilder
 	def output
 	  return @str
 	end
-  end
+end
